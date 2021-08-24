@@ -1,12 +1,12 @@
 select 
-   c.id as customer_id 
-   ,c.name 
-   ,c.email 
-   ,count(distinct o.id) as n_orders 
-   ,min(o.created_at) as first_order
-from `analytics-engineers-club.coffee_shop.customers` c 
-join `analytics-engineers-club.coffee_shop.orders` o 
-  on c.id = o.customer_id 
+   customers.id as customer_id,
+   customers.name, 
+   customers.email, 
+   count(distinct orders.id) as n_orders, 
+   min(orders.created_at) as first_order_at,
+from `analytics-engineers-club.coffee_shop.customers` customers 
+join `analytics-engineers-club.coffee_shop.orders` orders
+  on customers.id = orders.customer_id 
 group by 1, 2, 3
-order by first_order asc
+order by first_order_at asc
 limit 5;
