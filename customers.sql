@@ -1,7 +1,7 @@
 select 
    customers.id as customer_id,
-   customers.name, 
-   customers.email, 
+   customers.name as customer_name, 
+   customers.email as customer email,
    count(distinct orders.id) as n_orders, 
    min(orders.created_at) as first_order_at,
 from `analytics-engineers-club.coffee_shop.customers` customers 
