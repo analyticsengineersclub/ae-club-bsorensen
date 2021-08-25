@@ -4,7 +4,7 @@ select
    customers.email as email_address, 
    count(distinct orders.id) as n_orders, 
    min(orders.created_at) as first_order_at
-   /** New comment **/
+   /** Newer comment **/
 from `analytics-engineers-club.coffee_shop.customers` customers 
 join `analytics-engineers-club.coffee_shop.orders` orders
   on customers.id = orders.customer_id 
